@@ -1,0 +1,57 @@
+<mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <mxCell id="L1_bg" value="1. Camada de Interação (Developer Portal)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="80" y="80" width="640" height="100" as="geometry" />
+    </mxCell>
+    <mxCell id="L1_Backstage" value="Backstage&#xa;(Catálogo &amp; Golden Paths)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="320" y="120" width="160" height="40" as="geometry" />
+    </mxCell>
+
+    <mxCell id="L2_bg" value="2. Camada de Automação e CI/CD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="80" y="220" width="640" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="L2_AzurePipelines" value="Azure Pipelines&#xa;(CI / Testes / Build)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="120" y="270" width="140" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="L2_ACR" value="Azure Container Registry&#xa;(Imagens Distroless)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="330" y="270" width="140" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="L2_ArgoCD" value="ArgoCD&#xa;(GitOps / CD)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="540" y="270" width="140" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="L3_bg" value="3. Camada de Orquestração (Control Plane)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="80" y="380" width="640" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="L3_Crossplane" value="Crossplane&#xa;(Infraestrutura como Código)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="180" y="430" width="180" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="L3_Kyverno" value="Kyverno &amp; Azure Key Vault&#xa;(Policy as Code &amp; Segredos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="440" y="430" width="180" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="L4_bg" value="4. Camada de Infraestrutura e Nuvem (On Demand)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="80" y="540" width="640" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="L4_AKS" value="Azure Kubernetes Service (AKS)&#xa;(Workloads / Pods)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="120" y="590" width="200" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="L4_AzureResources" value="Recursos Gerenciados Azure&#xa;(Bancos de Dados, Filas, etc.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+      <mxGeometry x="480" y="590" width="200" height="50" as="geometry" />
+    </mxCell>
+
+    <mxCell id="Edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="L1_Backstage" target="L2_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="Edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="L2_bg" target="L3_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="Edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="L3_bg" target="L4_bg">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
+

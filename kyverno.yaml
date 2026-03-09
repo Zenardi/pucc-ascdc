@@ -1,0 +1,30 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-chainguard-distroless
+  annotations:
+    policies.kyverno.io/title: "Exigir Imagens Distroless (Chainguard)"
+    policies.kyverno.io/category: "Pod Security / Supply Chain"
+    policies.kyverno.io/severity: "high"
+    policies.kyverno.io/description: >-
+      Esta política garante que todas as cargas de trabalho no cluster
+      utilizem exclusivamente imagens distroless aprovadas para 
+      minimizar vulnerabilidades e otimizar o tempo de inicialização.
+spec:
+  validationFailureAction: Enforce
+  background: true
+  rules:
+    - name: check-image-registry
+      match:
+        any:
+        - resources:
+            kinds:
+              - Pod
+      validate:
+        message: "Deploy bloqueado pela IDP: Apenas imagens distroless aprovadas (cgr.dev/chainguard/*) são permitidas neste ambiente."
+        pattern:
+          spec:
+            containers:
+              - image: "cgr.dev/chainguard/*"
+            =(initContainers):
+              - image: "cgr.dev/chainguard/*"
