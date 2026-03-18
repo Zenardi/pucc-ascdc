@@ -1,0 +1,91 @@
+<mxfile host="65bd71144e">
+    <diagram id="IDP_Flow" name="Fluxo IDP">
+        <mxGraphModel dx="978" dy="633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Area_Humana" value="1. INTERAÇÃO HUMANA&#xa;(Carga de Trabalho Mínima - Minutos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;align=center;fontStyle=1;fontSize=12;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="220" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="Area_IDP" value="2. AUTOMAÇÃO DO IDP&#xa;(Trabalho Pesado - Segundos/Minutos)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=center;fontStyle=1;fontSize=12;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="80" width="460" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="Area_Cloud" value="3. AMBIENTE DE NUVEM&#xa;(Recursos Provisionados)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=center;fontStyle=1;fontSize=12;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="80" width="240" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="User" value="Desenvolvedor&#xa;(Usuário)" style="shape=actor;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="180" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Backstage" value="Portal do IDP&#xa;(Backstage)&#xa;Catálogo &amp; Templates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="340" y="190" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Pipeline" value="Motor de CI/CD&#xa;(Azure Pipelines)&#xa;- Gera Repositório Git&#xa;- Injeta Políticas/IA&#xa;- Roda Testes e Sec Scans" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="130" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Orchestration" value="GitOps &amp; IaC&#xa;(ArgoCD + Crossplane)&#xa;- Validações Kyverno&#xa;- Declaração de Estado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="270" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="Observability" value="Registro no Catálogo&#xa;&amp; FinOps (Tagueamento)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="380" width="380" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="GitRepo" value="Repositório Git&lt;br&gt;(Azure Repos)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="860" y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="CloudResources" value="Infraestrutura Segura&#xa;(Cluster AKS, Bancos,&#xa;Key Vault)" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="260" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="Edge_User_Backstage" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="User" target="Backstage" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Label_User_Backstage" value="Seleciona Golden Path&#xa;e preenche formulário" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;backgroundColor=#ffffff;" parent="Edge_User_Backstage" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint x="10" y="-19" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Backstage_Pipeline" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Backstage" target="Pipeline" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Label_Backstage_Pipeline" value="Dispara gatilho" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;backgroundColor=#ffffff;" parent="Edge_Backstage_Pipeline" vertex="1" connectable="0">
+                    <mxGeometry x="0.1" relative="1" as="geometry">
+                        <mxPoint x="-5" y="-10" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Pipeline_Orchestration" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Pipeline" target="Orchestration" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Label_Pipeline_Orchestration" value="Gera manifestos&#xa;IaC validados" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;backgroundColor=#ffffff;" parent="Edge_Pipeline_Orchestration" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" relative="1" as="geometry">
+                        <mxPoint y="6" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Pipeline_Git" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Pipeline" target="GitRepo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Label_Pipeline_Git" value="Cria base de código" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;backgroundColor=#ffffff;" parent="Edge_Pipeline_Git" vertex="1" connectable="0">
+                    <mxGeometry x="0.1" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-4" y="-11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Orchestration_Cloud" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0.16;entryY=0.55;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Orchestration" target="CloudResources" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Label_Orchestration_Cloud" value="Provisiona e sincroniza" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;backgroundColor=#ffffff;" parent="Edge_Orchestration_Cloud" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+                        <mxPoint y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Observability" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="Observability" target="Backstage" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="410" y="360"/>
+                            <mxPoint x="410" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="Edge_Observability_2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="Observability" target="Orchestration" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
